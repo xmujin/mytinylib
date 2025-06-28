@@ -1,6 +1,8 @@
 #include "array.h"
 #include <stdio.h>
 #include <assert.h>
+#include <stdlib.h>
+
 
 int arraySum(int *array, int length)
 {
@@ -40,4 +42,36 @@ void arrayReverse(int *array, int length)
         l++;
         r--;
     }
+}
+
+void arrayInsert(int *array, int length, int pos, int val)
+{
+    assert(array != NULL && length > 0 && pos >= 0);
+    for (int i = length - 1; i > pos; i--)
+    {
+        array[i] = array[i - 1];
+    }
+    array[pos] = val;
+}
+
+static int compareAscending(const void * a, const void * b)
+{
+    return (*(int*)a - *(int*)b);
+}
+static int compareDescending(const void * a, const void * b)
+{
+    return (*(int*)b - *(int*)a);
+}
+
+void arrayQuickSort(int *array, int length, SortWay sortway)
+{
+    if(sortway == ASCENDING)
+    {
+        qsort(array, length, sizeof(int), compareAscending);
+    }
+    else 
+    {
+        qsort(array, length, sizeof(int), compareDescending);
+    }
+    
 }
