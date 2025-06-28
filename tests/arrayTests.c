@@ -59,6 +59,21 @@ void arraySort_ascendingAndDecending(void) {
     TEST_ASSERT_EQUAL(7, a[0]);
 }
 
+
+void arraySelectionSort_normal(void) {
+    int a[5] = {3, 7, 3, 22, 11};
+    arraySelectionSort(a, 5);
+    TEST_ASSERT_EQUAL(7, a[2]);
+
+}
+
+void arrayBubbleSort_normal(void) {
+    int a[5] = {3, 7, 3, 22, 11};
+    arrayBubbleSort(a, 5);
+    TEST_ASSERT_EQUAL(7, a[2]);
+}
+
+
 // not needed when using generate_test_runner.rb
 int main(void) {
     UNITY_BEGIN();
@@ -69,5 +84,7 @@ int main(void) {
     RUN_TEST(arrayReverse_evenLength);
     RUN_TEST(arrayInsert_normal);
     RUN_TEST(arraySort_ascendingAndDecending);
+    RUN_TEST(arraySelectionSort_normal);
+    RUN_TEST(arrayBubbleSort_normal);
     return UNITY_END();
 }

@@ -4,6 +4,14 @@
 #include <stdlib.h>
 
 
+#define swap(a, b) swapValue(&(a), &(b))
+
+static inline void swapValue(int *a, int *b)
+{
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
 int arraySum(int *array, int length)
 {
     assert(array != NULL && length >= 0);
@@ -36,9 +44,7 @@ void arrayReverse(int *array, int length)
     int l = 0, r = length - 1;
     while(l < r)
     {
-        int t = array[l];
-        array[l] = array[r];
-        array[r] = t;
+        swap(array[l], array[r]);
         l++;
         r--;
     }
@@ -65,6 +71,7 @@ static int compareDescending(const void * a, const void * b)
 
 void arrayQuickSort(int *array, int length, SortWay sortway)
 {
+    assert(array != NULL && length > 0);
     if(sortway == ASCENDING)
     {
         qsort(array, length, sizeof(int), compareAscending);
@@ -72,6 +79,43 @@ void arrayQuickSort(int *array, int length, SortWay sortway)
     else 
     {
         qsort(array, length, sizeof(int), compareDescending);
+    }
+    
+}
+
+void arraySelectionSort(int *array, int length)
+{
+    assert(array != NULL && length > 0);
+    for (int i = 0; i < length - 1; i++)
+    {
+        int min = i;
+        for (int j = i + 1; j < length; j++)
+        {
+            if(array[j] < array[i])
+            {
+                min = j; // 找出最小值的索引
+            }
+        }
+        if(min != i)
+        {
+            swap(array[min], array[i]);
+        }
+    }
+}
+
+
+void arrayBubbleSort(int *array, int length)
+{
+    assert(array != NULL && length > 0);
+    for (int i = 0; i < length - 1; i++)
+    {
+        for (int j = 0; j < length - i -1; j++)
+        {
+            if(array[j] > array[j + 1])
+            {
+                swap(array[j], array[j + 1]);
+            }
+        }
     }
     
 }

@@ -39,6 +39,8 @@ void arrayReverse(int *array, int length);
  * @param length 数组长度
  * @param pos 插入的位置索引
  * @param val 插入的值
+ * 
+ * @warning 在数组空间不足时会导致数组元素值被覆盖
  */
 void arrayInsert(int *array, int length, int pos, int val);
 
@@ -50,5 +52,21 @@ void arrayInsert(int *array, int length, int pos, int val);
  * @param sortway 升序或降序
  */
 void arrayQuickSort(int *array, int length, SortWay sortway);
+
+
+/**
+ * @brief 选择排序完成升序排序
+ * @param array 数组指针
+ * @param length 数组长度
+ */
+void arraySelectionSort(int *array, int length);
+
+
+/**
+ * @brief 冒泡排序完成升序排序
+ * @param array 数组指针
+ * @param length 数组长度
+ */
+void arrayBubbleSort(int *array, int length);
 
 #endif // __ARRAY_H_
