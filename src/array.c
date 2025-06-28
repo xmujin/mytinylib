@@ -27,3 +27,17 @@ int arrayGetMax(int *array, int length)
     }
     return res;
 }
+
+void arrayReverse(int *array, int length)
+{
+    assert(array != NULL && length > 0);
+    int l = 0, r = length - 1;
+    while(l < r)
+    {
+        int t = array[l];
+        array[l] = array[r];
+        array[r] = t;
+        l++;
+        r--;
+    }
+}

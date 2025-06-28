@@ -20,4 +20,11 @@ int arraySum(int *array, int length);
 int arrayGetMax(int *array, int length);
 
 
+/**
+ * @brief 将数组进行翻转
+ * @param array 传入的数组指针
+ * @param length 数组的长度
+ */
+void arrayReverse(int *array, int length);
+
 #endif // __ARRAY_H_
